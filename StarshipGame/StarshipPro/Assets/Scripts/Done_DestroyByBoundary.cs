@@ -5,6 +5,9 @@ public class Done_DestroyByBoundary : MonoBehaviour
 {
 	void OnTriggerExit (Collider other) 
 	{
-		Destroy(other.gameObject);
+		if (other.tag != "Missile")
+			Destroy (other.gameObject);
+		else
+			other.gameObject.GetComponent<MissleScript> ().Explode ();
 	}
 }

@@ -14,19 +14,22 @@ public class Done_PlayerController : MonoBehaviour
 	public Done_Boundary boundary;
 
 	public GameObject shot;
-	public Transform shotSpawn;
+	public Transform rocketSpawn;
 	public float fireRate;
+	public GameObject missile;
 	 
 	private float nextFire;
 	
 	void Update ()
 	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire) 
-		{
-			nextFire = Time.time + fireRate;
-			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			GetComponent<AudioSource>().Play ();
+		if(Input.GetKeyDown(KeyCode.Space) && Done_GameController.missileCount > 0) {
+			Instantiate(missile, rocketSpawn.position, rocketSpawn.rotation);
+			Done_GameController.missileCount--;
 		}
+	}
+
+	public void KillPlayer() {
+		Destroy (this.gameObject);
 	}
 
 	void FixedUpdate ()

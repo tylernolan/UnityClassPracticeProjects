@@ -45,10 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BurstGun.cs" />
+     <Compile Include="Assets\DefaultLaserGun.cs" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\CloudRotation.cs" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\EarthOptionsGUISimple.cs" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\GeneralUI.cs" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\RevealNightEarthTexture.cs" />
+     <Compile Include="Assets\GunManager.cs" />
+     <Compile Include="Assets\HealthPickup.cs" />
+     <Compile Include="Assets\MachineGun.cs" />
+     <Compile Include="Assets\MissilePickup.cs" />
+     <Compile Include="Assets\MissleScript.cs" />
      <Compile Include="Assets\Models\ships\omega_fighter_01\script\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Done_BGScroller.cs" />
      <Compile Include="Assets\Scripts\Done_DestroyByBoundary.cs" />
@@ -61,6 +68,9 @@
      <Compile Include="Assets\Scripts\Done_RandomRotator.cs" />
      <Compile Include="Assets\Scripts\Done_WeaponController.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
+     <Compile Include="Assets\ShieldScript.cs" />
+     <Compile Include="Assets\ShotgunScript.cs" />
+     <Compile Include="Assets\WeaponPickup.cs" />
      <None Include="Assets\Models\ships\Modular Space Raider\readme.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\how_to_use.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
