@@ -43,6 +43,8 @@ public class Done_GameController : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.R))
 			{
 				Application.LoadLevel (Application.loadedLevel);
+				maxNumberHitsBeforeDeath = 3;
+				missileCount = 3;
 			}
 		}
 	}
@@ -65,6 +67,8 @@ public class Done_GameController : MonoBehaviour
 			if (gameOver)
 			{
 				restartText.text = "Press 'R' for Restart";
+				maxNumberHitsBeforeDeath = 3;
+				missileCount = 3;
 				restart = true;
 				break;
 			}
