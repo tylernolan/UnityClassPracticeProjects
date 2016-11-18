@@ -118,10 +118,11 @@ public class Done_GameController : MonoBehaviour
 	}
 
 	public void TakeDamage(){
-		maxNumberHitsBeforeDeath--;
-		if (maxNumberHitsBeforeDeath <= 0) {
-			GameOver ();
-		}
+			maxNumberHitsBeforeDeath--;
+			if (maxNumberHitsBeforeDeath <= 0) {
+				GameOver ();
+			}
+
 	}
 
 	void OnGUI() {

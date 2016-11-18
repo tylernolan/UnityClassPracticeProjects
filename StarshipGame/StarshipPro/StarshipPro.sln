@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{A651A891-3F28-9350-51A3-34CC6BE0F529}") = "StarshipPro", "Assembly-CSharp.csproj", "{60D16D2F-8808-6852-642B-C81F7FC6A9F4}"
 EndProject
+Project("{A651A891-3F28-9350-51A3-34CC6BE0F529}") = "StarshipPro", "Assembly-CSharp-Editor.csproj", "{FB03EDAA-4C1D-0F06-269B-7908F1AC677F}"
+EndProject
 Project("{A651A891-3F28-9350-51A3-34CC6BE0F529}") = "StarshipPro", "Assembly-UnityScript.unityproj", "{5647A493-CBA5-1E5D-A1AE-5A7BE63327C6}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{60D16D2F-8808-6852-642B-C81F7FC6A9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60D16D2F-8808-6852-642B-C81F7FC6A9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60D16D2F-8808-6852-642B-C81F7FC6A9F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB03EDAA-4C1D-0F06-269B-7908F1AC677F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB03EDAA-4C1D-0F06-269B-7908F1AC677F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB03EDAA-4C1D-0F06-269B-7908F1AC677F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB03EDAA-4C1D-0F06-269B-7908F1AC677F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5647A493-CBA5-1E5D-A1AE-5A7BE63327C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5647A493-CBA5-1E5D-A1AE-5A7BE63327C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5647A493-CBA5-1E5D-A1AE-5A7BE63327C6}.Release|Any CPU.ActiveCfg = Release|Any CPU

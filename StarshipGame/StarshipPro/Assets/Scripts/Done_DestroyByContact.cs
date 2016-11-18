@@ -6,6 +6,7 @@ public class Done_DestroyByContact : MonoBehaviour
 	public GameObject explosion;
 	public GameObject playerExplosion;
 	public int scoreValue;
+	public int hitsToKill = 1;
 	private Done_GameController gameController;
 
 	void Start ()
@@ -27,7 +28,7 @@ public class Done_DestroyByContact : MonoBehaviour
 		{
 			return;
 		}
-
+		hitsToKill--;
 		if (explosion != null)
 		{
 			Instantiate(explosion, transform.position, transform.rotation);
@@ -37,18 +38,24 @@ public class Done_DestroyByContact : MonoBehaviour
 		{
 			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.TakeDamage();
-			Destroy (gameObject);
+			if(hitsToKill <= 0)
+				Destroy (gameObject);
 			return;
 		}
 
 		if (other.tag == "Shield") {
 			Instantiate(explosion, transform.position, transform.rotation);
-			Destroy (gameObject);
-			gameController.AddScore(scoreValue);
+			if (hitsToKill <= 0) {
+				Destroy (gameObject);
+				gameController.AddScore (scoreValue);
+			}
 			return;
 		}
 		gameController.AddScore(scoreValue);
+		if (hitsToKill <= 0) {
+			Destroy (gameObject);
+			gameController.AddScore (scoreValue);
+		}
 		Destroy (other.gameObject);
-		Destroy (gameObject);
 	}
 }
