@@ -45,10 +45,8 @@ public class Done_DestroyByContact : MonoBehaviour
 
 		if (other.tag == "Shield") {
 			Instantiate(explosion, transform.position, transform.rotation);
-			if (hitsToKill <= 0) {
-				Destroy (gameObject);
-				gameController.AddScore (scoreValue);
-			}
+			Destroy (gameObject);
+			gameController.AddScore (scoreValue);
 			return;
 		}
 		gameController.AddScore(scoreValue);

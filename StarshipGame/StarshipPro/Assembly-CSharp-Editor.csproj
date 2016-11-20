@@ -49,6 +49,7 @@
      <None Include="Assets\Models\ships\Modular Space Raider\readme.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\how_to_use.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\EarthSimplePlanets\Shaders\DisplayNightEarthTexture.shader" />
      <None Include="Assets\Stagit\SkyboxEarthPlanets\readme.txt" />
  <Reference Include="UnityEditor.Advertisements">
@@ -89,6 +90,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{5E7AFABC-F94C-FC1F-84AE-58E15A2E1CDE}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{60D16D2F-8808-6852-642B-C81F7FC6A9F4}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">

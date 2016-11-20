@@ -14,19 +14,20 @@ public class Done_GameController : MonoBehaviour
 	public float waveWait;
 	public static int missileCount = 3;
 	public static int maxNumberHitsBeforeDeath = 3;
+	public int health = 3;
+	public int scoreToWin;
 	
 	public GUIText scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
 	
 	private bool gameOver;
-	private bool restart;
 	private int score;
 	
 	void Start ()
 	{
+		maxNumberHitsBeforeDeath = health;
 		gameOver = false;
-		restart = false;
 		restartText.text = "";
 		gameOverText.text = "";
 		score = 0;
@@ -38,13 +39,24 @@ public class Done_GameController : MonoBehaviour
 	
 	void Update ()
 	{
-		if (restart)
+		if (Input.GetKeyDown (KeyCode.G)) {
+			maxNumberHitsBeforeDeath = 3;
+			missileCount = 3;
+			Application.LoadLevel (Application.loadedLevel + 1);
+		}
+		if (score >= scoreToWin) {
+			maxNumberHitsBeforeDeath = 3;
+			missileCount = 3;
+			Application.LoadLevel (Application.loadedLevel + 1);
+		}
+		if (gameOver)
 		{
+			restartText.text = "Press 'R' for Restart";
 			if (Input.GetKeyDown (KeyCode.R))
 			{
-				Application.LoadLevel (Application.loadedLevel);
 				maxNumberHitsBeforeDeath = 3;
 				missileCount = 3;
+				Application.LoadLevel (Application.loadedLevel);
 			}
 		}
 	}
@@ -56,22 +68,17 @@ public class Done_GameController : MonoBehaviour
 		{
 			for (int i = 0; i < hazardCount; i++)
 			{
+				if (gameOver)
+					break;
 				GameObject hazard = hazards [Random.Range (0, hazards.Length)];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
-			yield return new WaitForSeconds (waveWait);
-			
 			if (gameOver)
-			{
-				restartText.text = "Press 'R' for Restart";
-				maxNumberHitsBeforeDeath = 3;
-				missileCount = 3;
-				restart = true;
 				break;
-			}
+			yield return new WaitForSeconds (waveWait);
 		}
 	}
 
@@ -82,6 +89,8 @@ public class Done_GameController : MonoBehaviour
 		{
 			for (int i = 0; i < hazardCount; i++)
 			{
+				if (gameOver)
+					break;
 				GameObject pickup = pickups [Random.Range (0, pickups.Length)];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
@@ -89,13 +98,8 @@ public class Done_GameController : MonoBehaviour
 				yield return new WaitForSeconds (spawnWaitPickups);
 			}
 			yield return new WaitForSeconds (waveWait);
-
 			if (gameOver)
-			{
-				restartText.text = "Press 'R' for Restart";
-				restart = true;
 				break;
-			}
 		}
 	}
 	

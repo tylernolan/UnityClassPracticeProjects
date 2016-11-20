@@ -1,6 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\EndGame.cs">
+    <Files>
+      <File FileName="Assets\EndGame.cs" Line="25" Column="4" />
+      <File FileName="Assets\Scripts\Done_GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Done_DestroyByContact.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\StartGame.cs" Line="5" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

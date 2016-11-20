@@ -48,19 +48,23 @@
      <Compile Include="Assets\EarthSimplePlanets\Scripts\RotateEarth.js" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\RotationAroundPlanet.js" />
      <Compile Include="Assets\EarthSimplePlanets\Scripts\SmoothMouseOrbit.js" />
-     <Compile Include="Assets\HealthBarJS.js" />
      <Compile Include="Assets\Models\ships\omega_fighter_01\script\NewBehaviourScript.js" />
+     <Compile Include="Assets\OtherShit\HealthBarJS.js" />
      <None Include="Assets\Models\ships\Modular Space Raider\readme.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\how_to_use.txt" />
      <None Include="Assets\Models\ships\Modular Space Raider\Shader\Dynamic_Illum_Spec.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\EarthSimplePlanets\Shaders\DisplayNightEarthTexture.shader" />
-     <None Include="Assets\Stagit\SkyboxEarthPlanets\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{5E7AFABC-F94C-FC1F-84AE-58E15A2E1CDE}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
