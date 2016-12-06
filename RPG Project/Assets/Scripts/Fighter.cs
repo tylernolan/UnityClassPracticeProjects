@@ -12,23 +12,33 @@ public class Fighter : MonoBehaviour {
 	public double range;
 	public int maxHealth;
 	public int Health;
+	public int maxMana;
+	public int Mana;
 	public bool Special_attack;
 	//controls animations on death 
 	public bool started;
 	public bool ended;
 	public float escapeTime = 10;
 	public float countDown;
+	public float manaRechargeTime = 1f;
+	private float manaCountdown = 0.0f;
 
 
 	// Use this for initialization
 	void Start () 
 	{
 		Health = maxHealth;
+		Mana = maxMana;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		manaCountdown += Time.deltaTime;
+		if (Mana < maxMana && manaCountdown >= manaRechargeTime) {
+			Mana++;
+			manaCountdown = 0.0f;
+		}
 		if (!Special_attack)
 		{
 						Attack (0,1,KeyCode.Space);
@@ -43,6 +53,12 @@ public class Fighter : MonoBehaviour {
 			Health =0;
 		}
 	}
+	public void Use_Mana(int amount) {
+		Mana -= amount;
+		if (Mana < 0) {
+			Mana = 0;
+		}
+	}
 
 	void impact(int stun, double scaledDam)
 	{
@@ -51,15 +67,17 @@ public class Fighter : MonoBehaviour {
 			if(GetComponent<Animation>()[attack.name].time>impactTime&&
 			   GetComponent<Animation>()[attack.name].time < 0.9*GetComponent<Animation>()[attack.name].length)
 			{
-				countDown = escapeTime+2;
-				CancelInvoke("CombatCountDown");
-				InvokeRepeating("CombatCountDown",0,1);
-
+				SetCombatCountdown ();
 				opponent.GetComponent<mob>().getHit((int)(damage*scaledDam));
 				opponent.GetComponent<mob>().GetStun(stun);
 				hit = true;
 			}
 		}
+	}
+	public void SetCombatCountdown() {
+		countDown = escapeTime+2;
+		CancelInvoke("CombatCountDown");
+		InvokeRepeating("CombatCountDown",0,1);
 	}
 
 	public void Attack(int stun, double scaledDam,KeyCode key)
@@ -80,6 +98,8 @@ public class Fighter : MonoBehaviour {
 		}
 		impact (stun, scaledDam );
 	}
+
+
 
 	public void resetAttack()
 	{

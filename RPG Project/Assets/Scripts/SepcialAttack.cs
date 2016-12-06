@@ -13,6 +13,7 @@ public class SepcialAttack : MonoBehaviour {
 	private Vector3 lastPos;
 	private bool usemove = true;
 	public float waittime;
+	public int manaConsumptionAmount = 25;
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +30,9 @@ public class SepcialAttack : MonoBehaviour {
 
 		}	
 
-	  if (Input.GetKeyDown (key) && usemove) 
+		if (Input.GetKeyDown (key) && usemove && (player.Mana >= manaConsumptionAmount)) 
 		{
+			player.Use_Mana (manaConsumptionAmount);
 			usemove = false;
 			player.resetAttack ();
 			player.Special_attack = true;

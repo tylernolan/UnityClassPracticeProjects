@@ -12,6 +12,7 @@ public class LevelSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		Player = GetComponent<Fighter> ();
 		expNeeded =(int)(Mathf.Pow(Level,2)+100);
 	}
 	

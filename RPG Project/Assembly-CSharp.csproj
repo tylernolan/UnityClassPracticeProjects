@@ -45,8 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HealingPower.cs" />
+     <Compile Include="Assets\KillAllEnemies.cs" />
      <Compile Include="Assets\Particles\Elementals\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\Particles\Elementals\Scripts\TestParticles.cs" />
+     <Compile Include="Assets\PlayerMana.cs" />
      <Compile Include="Assets\Scripts\ClickToMove.cs" />
      <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Fighter.cs" />
@@ -56,6 +59,7 @@
      <Compile Include="Assets\Scripts\SepcialAttack.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\mob.cs" />
+     <Compile Include="Assets\StunTrap.cs" />
      <None Include="Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Particles\Elementals\!Readme.txt" />
      <None Include="Assets\SkeletonData\animations.txt" />
