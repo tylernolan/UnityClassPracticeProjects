@@ -37,11 +37,10 @@ public class SepcialAttack : MonoBehaviour {
 			player.resetAttack ();
 			player.Special_attack = true;
 			inAction = true;
-
 			lastPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
 
 			instantiated = (GameObject)Instantiate (ParticlePrefab, 
-	        lastPos, transform.rotation);
+	        lastPos,  transform.rotation);
 
 			StopCoroutine ("Destroy");    // Interrupt in case it's running
 			StartCoroutine ("Destroy");

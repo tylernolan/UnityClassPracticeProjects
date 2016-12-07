@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\mob.cs" />
      <Compile Include="Assets\StunTrap.cs" />
+     <Compile Include="Assets\WindScript.cs" />
      <None Include="Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Particles\Elementals\!Readme.txt" />
      <None Include="Assets\SkeletonData\animations.txt" />
