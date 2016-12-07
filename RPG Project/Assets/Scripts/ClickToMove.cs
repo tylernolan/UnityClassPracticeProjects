@@ -23,6 +23,7 @@ public class ClickToMove : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+
 		if (!attack&&!dieing) 
 		    {
 			if (Input.GetMouseButton (0)) {

@@ -45,6 +45,8 @@ public class SepcialAttack : MonoBehaviour {
 
 			StopCoroutine ("Destroy");    // Interrupt in case it's running
 			StartCoroutine ("Destroy");
+			player.Special_attack = false;
+
 		}
 
 		if (inAction) 

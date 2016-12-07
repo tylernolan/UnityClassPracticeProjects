@@ -10,7 +10,7 @@ public class mob : MonoBehaviour {
 	public CharacterController control;
 	public AnimationClip run;
 	public LevelSystem playerLevel;
-	public AnimationClip idel;
+	public AnimationClip idle;
 	public int maxHealth;
 	public int health;
 	public int damage;
@@ -21,12 +21,15 @@ public class mob : MonoBehaviour {
 	private bool impacted = false;
 	private Fighter opponent;
 	private int stunTime;
+	private float timeCounter = 0.0f;
+	private float origSpeed;
 
 	// Use this for initialization
 	void Start () 
 	{
 		health = maxHealth;
 		opponent = player.GetComponent<Fighter> ();
+		origSpeed = speed;
 	}
 	
 	// Update is called once per frame
@@ -34,14 +37,18 @@ public class mob : MonoBehaviour {
 	{
 		if (IsDead() == false) 
 		{
-			if(!inRange(chaseRange)) return;
+			if (!inRange (chaseRange)) {
+				GetComponent<Animation>().Play (idle.name);
+				return;
+
+			}
 			if(stunTime<=0)
 			{
 			if (!inRange (range)) 
 			{
 					chase ();
 			} else {
-					//animation.CrossFade (idel.name);
+					//animation.CrossFade (idle.name);
 			attack();
 				if (GetComponent<Animation>()[attacks.name].time > 0.9*GetComponent<Animation>()[attacks.name].length)
 				{
@@ -54,6 +61,25 @@ public class mob : MonoBehaviour {
 			}
 		} else
 		  staydead ();
+	}
+
+	public void TakeDamageOverTime(int damageAmount, float timeInterval) {
+		timeCounter += Time.deltaTime;
+		if (timeCounter >= timeInterval) {
+			this.getHit (damageAmount);
+			ResetTimer ();
+		}
+	}
+
+	public void SlowDown(bool isSlowed, float factor) {
+		if (isSlowed)
+			speed = origSpeed * factor;
+		else
+			speed = origSpeed;
+	}
+
+	public void ResetTimer() {
+		timeCounter = 0.0f;
 	}
 
 	public void GetStun(int seconds)

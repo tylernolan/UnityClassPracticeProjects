@@ -20,8 +20,14 @@ public class Fighter : MonoBehaviour {
 	public bool ended;
 	public float escapeTime = 10;
 	public float countDown;
-	public float manaRechargeTime = 1f;
+	public float manaRechargeTime = 0.5f;
 	private float manaCountdown = 0.0f;
+	private float spellCooldown = 2.0f;
+	private float lastSpellTime = 0.0f;
+	public int spellCost = 10;
+	public KeyCode spellKey = KeyCode.LeftShift;
+	public GameObject fireBall;
+	public GameObject magicEmitter;
 
 
 	// Use this for initialization
@@ -39,6 +45,11 @@ public class Fighter : MonoBehaviour {
 			Mana++;
 			manaCountdown = 0.0f;
 		}
+		if (Input.GetKeyDown (spellKey)) {
+			CastSpell ();
+		}
+
+
 		if (!Special_attack)
 		{
 						Attack (0,1,KeyCode.Space);
@@ -155,6 +166,14 @@ public class Fighter : MonoBehaviour {
 				}
 	}
 
+	void CastSpell() {
+		if (Mana >= spellCost &&Time.time - lastSpellTime >= spellCooldown) {
+			GameObject casted = (GameObject) Instantiate (fireBall, magicEmitter.transform.position, gameObject.transform.rotation);
+			casted.GetComponent<Rigidbody> ().velocity = transform.forward*15;
+			lastSpellTime = Time.time;
+			Mana -= spellCost;
+		}
+	}
 
 
 
