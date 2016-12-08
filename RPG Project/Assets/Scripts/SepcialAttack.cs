@@ -14,10 +14,14 @@ public class SepcialAttack : MonoBehaviour {
 	private bool usemove = true;
 	public float waittime;
 	public int manaConsumptionAmount = 25;
+	private GUIPowersScript powerBar;
+	public string powerImageName;
+	public Texture2D activeImg;
+	public Texture2D notActiveImg;
 
 	// Use this for initialization
 	void Start () {
-	
+		powerBar = GameObject.Find ("PowerBar").GetComponent<GUIPowersScript>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +36,7 @@ public class SepcialAttack : MonoBehaviour {
 
 		if (Input.GetKeyDown (key) && usemove && (player.Mana >= manaConsumptionAmount)) 
 		{
+			powerBar.setPowerImage (powerImageName, activeImg);
 			player.Use_Mana (manaConsumptionAmount);
 			usemove = false;
 			player.resetAttack ();
@@ -65,6 +70,7 @@ public class SepcialAttack : MonoBehaviour {
 	IEnumerator Destroy()
 	{
 		yield return new WaitForSeconds(waittime);
+		powerBar.setPowerImage (powerImageName, notActiveImg);
 		if (instantiated != null)
 		{
 			Destroy(instantiated); 

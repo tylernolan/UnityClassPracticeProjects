@@ -48,6 +48,7 @@
      <Compile Include="Assets\CastSpell.cs" />
      <Compile Include="Assets\FireballScript.cs" />
      <Compile Include="Assets\FirewallScript.cs" />
+     <Compile Include="Assets\GUIPowersScript.cs" />
      <Compile Include="Assets\HealingPower.cs" />
      <Compile Include="Assets\KillAllEnemies.cs" />
      <Compile Include="Assets\LookAtMouseOnClick.cs" />
