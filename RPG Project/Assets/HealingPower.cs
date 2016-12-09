@@ -17,9 +17,9 @@ public class HealingPower : MonoBehaviour {
 			Fighter player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Fighter> ();
 			if (player.Health == player.maxHealth)
 				player.Mana += 50;
-			else if (player.Health + healAmount > 100)
+			else if (player.Health + healAmount > player.maxHealth)
 				player.Health = 100;
-			else if (player.Health + healAmount < 100)
+			else if (player.Health + healAmount < player.maxHealth)
 				player.Health += healAmount;
 			heal = false;
 		}

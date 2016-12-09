@@ -11,7 +11,7 @@ public class LevelSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () 
-	{
+	{//
 		Player = GetComponent<Fighter> ();
 		expNeeded =(int)(Mathf.Pow(Level,2)+100);
 	}
@@ -38,9 +38,11 @@ public class LevelSystem : MonoBehaviour {
 
 	void LevelEffect()
 	{
-		Player.maxHealth +=100;
-		Player.damage +=(int)Mathf.Pow(Level,2)+20;
+		Player.maxHealth += (Player.maxHealth / 4);
+		Player.damage +=Player.damage/4;
+		Player.maxMana += Player.maxMana / 4;
 		Player.Health = Player.maxHealth;
+		Player.Mana = Player.maxMana;
 	}
 
 
