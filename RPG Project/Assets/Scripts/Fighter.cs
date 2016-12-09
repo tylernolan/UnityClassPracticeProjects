@@ -56,19 +56,22 @@ public class Fighter : MonoBehaviour {
 		}
 		die ();
 	}
+	//Forces the val to be between a min and a max
+	private int clamp(int min, int curr, int max)
+	{
+		if (min > curr)
+			return min;
+		else if (curr > max)
+			return max;
+		else
+			return curr;
+	}
 	public void Get_Hit(int damage)
 	{
-		Health -= damage;
-		if (Health < 0) 
-		{
-			Health =0;
-		}
+		Health = clamp(0, Health - damage, maxHealth);
 	}
 	public void Use_Mana(int amount) {
-		Mana -= amount;
-		if (Mana < 0) {
-			Mana = 0;
-		}
+		Mana = clamp(0, Mana - amount, maxMana);
 	}
 
 	void impact(int stun, double scaledDam)

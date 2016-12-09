@@ -1,8 +1,20 @@
 fileFormatVersion: 2
 guid: c3200c3eeb7743d49bbe472e5db6e2d7
+timeCreated: 1481268573
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - control: {instanceID: 0}
+  - run: {instanceID: 0}
+  - playerLevel: {instanceID: 0}
+  - idle: {instanceID: 0}
+  - smiteParticles: {fileID: 139980, guid: d470ea41572aefa4291a35ff7ab940e6, type: 2}
+  - die: {instanceID: 0}
+  - attacks: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

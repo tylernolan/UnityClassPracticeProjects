@@ -11,6 +11,7 @@ public class mob : MonoBehaviour {
 	public AnimationClip run;
 	public LevelSystem playerLevel;
 	public AnimationClip idle;
+	public GameObject smiteParticles;
 	public int maxHealth;
 	public int health;
 	public int damage;
@@ -23,11 +24,12 @@ public class mob : MonoBehaviour {
 	private int stunTime;
 	private float timeCounter = 0.0f;
 	private float origSpeed;
-
 	// Use this for initialization
 	void Start () 
 	{
 		health = maxHealth;
+		player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+		playerLevel = player.GetComponent<LevelSystem>();
 		opponent = player.GetComponent<Fighter> ();
 		origSpeed = speed;
 	}
@@ -61,6 +63,11 @@ public class mob : MonoBehaviour {
 			}
 		} else
 		  staydead ();
+	}
+	public void smite()
+	{
+		health = 0;
+		Instantiate(smiteParticles, transform.position, Quaternion.Euler(270, 0, 0));
 	}
 
 	public void TakeDamageOverTime(int damageAmount, float timeInterval) {
