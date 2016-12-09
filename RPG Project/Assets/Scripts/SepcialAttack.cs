@@ -68,6 +68,7 @@ public class SepcialAttack : MonoBehaviour {
 			}
 		}
 	}
+		
 
 	IEnumerator Destroy()
 	{

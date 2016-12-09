@@ -56,31 +56,26 @@ public class netLoop : MonoBehaviour {
 	public void executeCommand(string name, int command)
 	{
 		
-		if (command == 0)
-		{
-			Instantiate(skeleton, player.transform.position, player.transform.rotation);
-			setCommandLog(name, " Has summoned a Skeleton!");
-		}
-		else if (command == 1)
-		{
-			Instantiate(skeletonMage, player.transform.position, player.transform.rotation);
-			setCommandLog(name, " Has summoned a Mage!");
-		}
-		else if (command == 2)
-		{
-			player.GetComponent<Fighter>().Get_Hit(-10); //hitting for negative values heals
-			setCommandLog(name, " Has healed the player!");
-		}
-		else if (command == 3)
-		{
-			player.GetComponent<Fighter>().Use_Mana(-10);
-			setCommandLog(name, " Has given the player mana!");
-		}
-		else if (command == 4)
-		{
-			GameObject enemy = GameObject.FindGameObjectsWithTag("Enemy")[0];
-			enemy.GetComponent<mob>().smite();
-			setCommandLog(name, " Has smited an enemy!");
+		if (command == 0) {
+			Instantiate (skeleton, player.transform.position, player.transform.rotation);
+			setCommandLog (name, " Has summoned a Skeleton!");
+		} else if (command == 1) {
+			Instantiate (skeletonMage, player.transform.position, player.transform.rotation);
+			setCommandLog (name, " Has summoned a Mage!");
+		} else if (command == 2) {
+			player.GetComponent<Fighter> ().Get_Hit (-10); //hitting for negative values heals
+			setCommandLog (name, " Has healed the player!");
+		} else if (command == 3) {
+			player.GetComponent<Fighter> ().Use_Mana (-10);
+			setCommandLog (name, " Has given the player mana!");
+		} else if (command == 4) {
+			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+			int scale = enemies.Length;
+			int randNum = Random.Range (0, scale - 1);
+			GameObject enemy = enemies [randNum];
+			enemy.GetComponent<mob> ().smite ();
+			setCommandLog (name, " Has smited an enemy!");
+		} 
 		}
 	}
 }
