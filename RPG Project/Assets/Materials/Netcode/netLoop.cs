@@ -76,6 +76,6 @@ public class netLoop : MonoBehaviour {
 			enemy.GetComponent<mob> ().smite ();
 			setCommandLog (name, " Has smited an enemy!");
 		} 
-		}
+
 	}
 }
