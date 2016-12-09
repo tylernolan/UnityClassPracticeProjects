@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		framePosition.y = Screen.height * 0.9f;
+		framePosition.y = (Screen.height -2*(framePosition.height+10));
 		Death.width = 0;
 		Death.height = 0;
 		DP = new Rect ();

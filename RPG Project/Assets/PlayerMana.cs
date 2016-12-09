@@ -17,7 +17,7 @@ public class PlayerMana : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		framePosition.y = Screen.height * 0.9f;
+		framePosition.y = (Screen.height -(framePosition.height+10));
 	}
 
 	// Update is called once per frame
@@ -45,7 +45,7 @@ public class PlayerMana : MonoBehaviour {
 
 	void DrawFrame()
 	{
-		framePosition.x = (Screen.width - framePosition.width) /2 - (framePosition.width*2);
+		framePosition.x = (Screen.width - framePosition.width) /2 /*- (framePosition.width*2)*/;
 		//float width = 200 / 0.39f;
 		//for added compretion 
 		//framePosition.width = Screen.width* width;

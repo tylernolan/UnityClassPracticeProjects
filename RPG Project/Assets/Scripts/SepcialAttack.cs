@@ -18,6 +18,7 @@ public class SepcialAttack : MonoBehaviour {
 	public string powerImageName;
 	public Texture2D activeImg;
 	public Texture2D notActiveImg;
+	public float activatedTime;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class SepcialAttack : MonoBehaviour {
 
 		if (Input.GetKeyDown (key) && usemove && (player.Mana >= manaConsumptionAmount)) 
 		{
+			activatedTime = Time.time;
 			powerBar.setPowerImage (powerImageName, activeImg);
 			player.Use_Mana (manaConsumptionAmount);
 			usemove = false;
