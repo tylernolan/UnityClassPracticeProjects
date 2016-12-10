@@ -70,12 +70,12 @@ public class netLoop : MonoBehaviour {
 			setCommandLog (name, " Has given the player mana!");
 		} else if (command == 4) {
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-			int scale = enemies.Length;
-			int randNum = Random.Range (0, scale - 1);
-			GameObject enemy = enemies [randNum];
+			GameObject enemy = enemies [Random.Range(0,enemies.Length-1)];
 			enemy.GetComponent<mob> ().smite ();
 			setCommandLog (name, " Has smited an enemy!");
-		} 
+		} else if (command == 5) {
+			setCommandLog (name, " says: " + Complimenter.getRandomCompliment ());
+		}
 
 	}
 }

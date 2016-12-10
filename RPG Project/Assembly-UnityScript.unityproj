@@ -49,6 +49,7 @@
      <None Include="Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Particles\Elementals\!Readme.txt" />
      <None Include="Assets\SkeletonData\animations.txt" />
+     <None Include="Assets\compliments.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

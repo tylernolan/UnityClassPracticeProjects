@@ -12,7 +12,7 @@ public class NetworkModel : MonoBehaviour {
 	private static Queue<string> buffer = new Queue<string>();
 	public static void sendConnRequest()
 	{
-		send("supersecretpassword");
+		send("supersecretpassword");//top tier security password 10/10
 	}
 	public static void send(string msgData)
 	{
