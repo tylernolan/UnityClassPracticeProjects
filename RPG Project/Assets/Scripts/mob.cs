@@ -24,6 +24,7 @@ public class mob : MonoBehaviour {
 	private int stunTime;
 	private float timeCounter = 0.0f;
 	private float origSpeed;
+	public bool isMage = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -160,11 +161,17 @@ public class mob : MonoBehaviour {
 	{
 		GetComponent<Animation>().Play (attacks.name);
 
+
+
 		if (GetComponent<Animation>() [attacks.name].time > ImpactTime&!impacted&&
 		    GetComponent<Animation>()[attacks.name].time < 0.9*GetComponent<Animation>()[attacks.name].length) 
 		{
 			impacted =true;
-			opponent.Get_Hit(damage);
+			if (isMage) {
+				GetComponent<MageScript> ().CastSpell ();
+			} else {
+				opponent.Get_Hit (damage);
+			}
 		}
 	}
 

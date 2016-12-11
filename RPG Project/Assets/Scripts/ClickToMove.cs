@@ -10,6 +10,7 @@ public class ClickToMove : MonoBehaviour {
 	public AnimationClip idle;
 	public static bool attack = false;
 	public static bool dieing = false;
+	public GameObject particleEffect;
 	
 
 	// Use this for initialization
@@ -47,8 +48,10 @@ public class ClickToMove : MonoBehaviour {
 
 		if(Physics.Raycast(ray, out hit, 1000))
 		{
-			if(hit.collider.tag == "Floor")
-			position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+			if (hit.collider.tag == "Floor") {
+				position = new Vector3 (hit.point.x, hit.point.y, hit.point.z);
+				Instantiate (particleEffect, position, Quaternion.identity);
+			}
 		}
 	}
 
