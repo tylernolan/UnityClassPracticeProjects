@@ -45,8 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\KY_effects\Script\ConGUI.js" />
-     <Compile Include="Assets\KY_effects\Script\Lighting.js" />
      <Compile Include="Assets\Particles\Legacy Particles\TimedObjectDestructor.js" />
      <None Include="Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
