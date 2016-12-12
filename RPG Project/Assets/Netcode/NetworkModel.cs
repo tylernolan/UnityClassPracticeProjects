@@ -42,7 +42,7 @@ public class NetworkModel : MonoBehaviour {
 			}
 			else if (stream.DataAvailable)
 			{
-				byte[] data = new byte[2048];
+				byte[] data = new byte[512];
 				string respData = string.Empty;
 				int bytes = stream.Read(data, 0, data.Length);
 				respData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
