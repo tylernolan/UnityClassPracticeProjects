@@ -75,6 +75,12 @@ public class netLoop : MonoBehaviour {
 			setCommandLog (name, " Has smited an enemy!");
 		} else if (command == 5) {
 			setCommandLog (name, " says: " + Complimenter.getRandomCompliment ());
+		} else if (command == 6) {
+			player.GetComponent<Fighter>().empower();
+			setCommandLog (name, " empowered your weapon!");
+		} else if (command == 7) {
+			player.GetComponent<Fighter>().giveBarrier();
+			setCommandLog (name, " gave you a barrier!");
 		}
 
 	}

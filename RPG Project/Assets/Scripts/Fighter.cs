@@ -21,10 +21,13 @@ public class Fighter : MonoBehaviour {
 	public float escapeTime = 10;
 	public float countDown;
 	public float manaRechargeTime = 0.5f;
+	public GameObject barrier;
+	public int empowermentCount = 0;
 	private float manaCountdown = 0.0f;
 	private float spellCooldown = 2.0f;
 	private float lastSpellTime = 0.0f;
 	public int spellCost = 10;
+	public bool hasBarrier;
 	public KeyCode spellKey = KeyCode.LeftShift;
 	public GameObject fireBall;
 	public GameObject magicEmitter;
@@ -56,6 +59,21 @@ public class Fighter : MonoBehaviour {
 		}
 		die ();
 	}
+	public void giveBarrier()
+	{
+		barrier.GetComponent<MeshRenderer>().enabled = true;
+		hasBarrier = true;
+	}
+	public void removeBarrier()
+	{
+		barrier.GetComponent<MeshRenderer>().enabled = false;
+		hasBarrier = false;
+	}
+	public void empower()
+	{
+		//some kind of particle effect here maybe?
+		empowermentCount++;
+	}
 	//Forces the val to be between a min and a max
 	private int clamp(int min, int curr, int max)
 	{
@@ -68,7 +86,14 @@ public class Fighter : MonoBehaviour {
 	}
 	public void Get_Hit(int damage)
 	{
-		Health = clamp(0, Health - damage, maxHealth);
+		if (damage > 0 && hasBarrier)
+		{
+			removeBarrier();
+		}
+		else
+		{
+			Health = clamp(0, Health - damage, maxHealth);
+		}
 	}
 	public void Use_Mana(int amount) {
 		Mana = clamp(0, Mana - amount, maxMana);
@@ -82,9 +107,11 @@ public class Fighter : MonoBehaviour {
 			   GetComponent<Animation>()[attack.name].time < 0.9*GetComponent<Animation>()[attack.name].length)
 			{
 				SetCombatCountdown ();
-				opponent.GetComponent<mob>().getHit((int)(damage*scaledDam));
+				int dmg = (int)(damage*scaledDam) * (1+empowermentCount);
+				opponent.GetComponent<mob>().getHit(dmg);
 				opponent.GetComponent<mob>().GetStun(stun);
 				hit = true;
+				empowermentCount = 0;
 			}
 		}
 	}
