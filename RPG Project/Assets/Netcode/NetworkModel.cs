@@ -58,8 +58,8 @@ public class NetworkModel : MonoBehaviour {
 						Debug.Log("Buffered: " + commands[i]);
 					}
 				}
-				Debug.Log("REC: "+respData);
-				return respData;
+				Debug.Log("REC: "+lastMessageProcessed);
+				return lastMessageProcessed;
 			}
 		}
 		while(persistence);

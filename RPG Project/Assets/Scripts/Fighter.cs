@@ -23,6 +23,7 @@ public class Fighter : MonoBehaviour {
 	public float manaRechargeTime = 0.5f;
 	public GameObject barrier;
 	public int empowermentCount = 0;
+	public GameObject empowermentParticles;
 	private float manaCountdown = 0.0f;
 	private float spellCooldown = 2.0f;
 	private float lastSpellTime = 0.0f;
@@ -73,6 +74,9 @@ public class Fighter : MonoBehaviour {
 	{
 		//some kind of particle effect here maybe?
 		empowermentCount++;
+		ParticleSystem ps = empowermentParticles.GetComponent<ParticleSystem>();
+		ps.Play();
+		ps.maxParticles = empowermentCount;
 	}
 	//Forces the val to be between a min and a max
 	private int clamp(int min, int curr, int max)
@@ -112,6 +116,16 @@ public class Fighter : MonoBehaviour {
 				opponent.GetComponent<mob>().GetStun(stun);
 				hit = true;
 				empowermentCount = 0;
+				ParticleSystem ps = empowermentParticles.GetComponent<ParticleSystem>();
+				ps.Stop();
+				ParticleSystem.Particle[] particles=new ParticleSystem.Particle[ps.particleCount];
+				int num=ps.GetParticles(particles);
+				Debug.Log(num);
+				//the following doesn't work and I have no idea why.
+				for(int i=0;i<num;i++){
+					particles[i].lifetime =.1f;
+					particles[i].size = 1f;
+				}
 			}
 		}
 	}
