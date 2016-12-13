@@ -122,10 +122,12 @@
      <Compile Include="Assets\Scripts\Screenfade.cs" />
      <Compile Include="Assets\Scripts\ScrollingTextGUI.cs" />
      <Compile Include="Assets\Scripts\SepcialAttack.cs" />
+     <Compile Include="Assets\Scripts\SpiritBombScript.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\StunTrap.cs" />
      <Compile Include="Assets\Scripts\Trap.cs" />
      <Compile Include="Assets\Scripts\WindScript.cs" />
+     <Compile Include="Assets\Scripts\bossMob.cs" />
      <Compile Include="Assets\Scripts\keepAlive.cs" />
      <Compile Include="Assets\Scripts\mob.cs" />
      <None Include="Assets\Skining Tools\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />

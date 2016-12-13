@@ -24,6 +24,7 @@ public class mob : MonoBehaviour {
 	private int stunTime;
 	private float timeCounter = 0.0f;
 	private float origSpeed;
+	public bool boss = false;
 	public bool isMage = false;
 	// Use this for initialization
 	void Start () 
@@ -47,7 +48,7 @@ public class mob : MonoBehaviour {
 			}
 			if(stunTime<=0)
 			{
-			if (!inRange (range)) 
+			if (!inRange (range+3)) 
 			{
 					chase ();
 			} else {
@@ -67,7 +68,10 @@ public class mob : MonoBehaviour {
 	}
 	public void smite()
 	{
-		health = 0;
+		if (this.boss == false)
+		{
+			health = 0;
+		}
 		Instantiate(smiteParticles, transform.position, Quaternion.Euler(270, 0, 0));
 	}
 

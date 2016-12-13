@@ -9,6 +9,9 @@ public class netLoop : MonoBehaviour {
 	public GameObject skeletonMage;
 	public GameObject[] LogTextBoxes;
 	public Queue<string> commandLog = new Queue<string>();
+	public GameObject boss;
+	public GameObject spiritBomb;
+	private bool bossEnabled = false;
 	// Use this for initialization
 	void Start () {
 		NetworkModel.sendConnRequest();
@@ -28,6 +31,14 @@ public class netLoop : MonoBehaviour {
 			int command = int.Parse(netdata[1]);
 			executeCommand(name, command);
 		}
+		if (player.GetComponent<LevelSystem>().Level >= 2 && bossEnabled == false)
+		{
+			bossEnabled = true;
+			boss.SetActive(true);
+			spiritBomb.SetActive(true);
+			NetworkModel.send("enableboss");
+		}
+			
 	}
 	public void setCommandLog(string name, string commandText)
 	{
@@ -47,6 +58,7 @@ public class netLoop : MonoBehaviour {
 		
 	}
 	/**
+	-1: Grow Spirit bomb
 	0: Summon Basic Skeleton
 	1: Summon Skeleton Mage
 	2: Heal player 10
@@ -70,7 +82,7 @@ public class netLoop : MonoBehaviour {
 			setCommandLog (name, " Has given the player mana!");
 		} else if (command == 4) {
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-			GameObject enemy = enemies [Random.Range(0,enemies.Length-1)];
+			GameObject enemy = enemies [Random.Range(0,enemies.Length)];
 			enemy.GetComponent<mob> ().smite ();
 			setCommandLog (name, " Has smited an enemy!");
 		} else if (command == 5) {
@@ -81,6 +93,11 @@ public class netLoop : MonoBehaviour {
 		} else if (command == 7) {
 			player.GetComponent<Fighter>().giveBarrier();
 			setCommandLog (name, " gave you a barrier!");
+		} else if (command == -1) {
+			spiritBomb.GetComponent<SpiritBombScript>().Grow();
+			player.GetComponent<Fighter> ().Get_Hit (-25);
+			player.GetComponent<Fighter> ().Use_Mana (-25);
+			setCommandLog (name, " is giving you energy!");
 		}
 
 	}
