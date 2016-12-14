@@ -32,6 +32,9 @@ public class Fighter : MonoBehaviour {
 	public KeyCode spellKey = KeyCode.LeftShift;
 	public GameObject fireBall;
 	public GameObject magicEmitter;
+	public GameObject bloodParticles;
+	public GameObject netHealParticles;
+	public GameObject netManaParticles;
 
 
 	// Use this for initialization
@@ -90,6 +93,11 @@ public class Fighter : MonoBehaviour {
 	}
 	public void Get_Hit(int damage)
 	{
+		if (damage > 0)
+			Instantiate (bloodParticles, transform.position+new Vector3(0,1.5f,0), Quaternion.identity);
+		else
+			Instantiate (netHealParticles, transform.position, Quaternion.identity);
+		
 		if (damage > 0 && hasBarrier)
 		{
 			removeBarrier();
@@ -100,6 +108,9 @@ public class Fighter : MonoBehaviour {
 		}
 	}
 	public void Use_Mana(int amount) {
+		if(amount < 0)
+			Instantiate (netManaParticles, transform.position, Quaternion.identity);
+		
 		Mana = clamp(0, Mana - amount, maxMana);
 	}
 
@@ -166,6 +177,8 @@ public class Fighter : MonoBehaviour {
 
 	bool InRange()
 	{
+		if (opponent == null)
+			return false;
 		if (Vector3.Distance(opponent.transform.position, transform.position)<= range) 
 		{
 			return true;

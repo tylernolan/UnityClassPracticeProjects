@@ -102,7 +102,7 @@ public class PlayerHealth : MonoBehaviour {
 
 		if (Input.anyKey) 
 		{
-			Application.LoadLevel("rpg game 1");
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
 

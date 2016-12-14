@@ -26,6 +26,8 @@ public class mob : MonoBehaviour {
 	private float origSpeed;
 	public bool boss = false;
 	public bool isMage = false;
+	private bool spawnParticles = true;
+	private bool changeSpawnedCount = true;
 	// Use this for initialization
 	void Start () 
 	{
@@ -113,14 +115,15 @@ public class mob : MonoBehaviour {
 	public void getHit(int damage)
 	{
 		health = health - damage;
-		if (health < 0) 
+		if (health <= 0) 
 		{
 			health = 0;
 		}
 	}
 
 	void chase()
-	{
+	{	if (GetComponent<Animation> ().IsPlaying (attacks.name))
+			return;
 		transform.LookAt (player.position);
 		//transform.position += transform.forward * speed * Time.deltaTime;
 		control.SimpleMove (transform.forward * speed);
@@ -137,6 +140,14 @@ public class mob : MonoBehaviour {
 	{
 		if (health <= 0) 
 		{
+			if (boss && spawnParticles) {
+				spawnParticles = false;
+				GetComponent<BossDeathScript> ().BossDeath ();
+			}
+			if (changeSpawnedCount) {
+				Camera.main.GetComponent<netLoop> ().spawnedEnemies--;
+				changeSpawnedCount = false;
+			}
 			return true;
 		}
 		return false;

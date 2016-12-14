@@ -11,7 +11,10 @@ public class netLoop : MonoBehaviour {
 	public Queue<string> commandLog = new Queue<string>();
 	public GameObject boss;
 	public GameObject spiritBomb;
-	private bool bossEnabled = false;
+	public bool bossEnabled = false;
+	public int maxSpawnableEnemies = 75;
+	[HideInInspector]
+	public int spawnedEnemies = 0;
 	// Use this for initialization
 	void Start () {
 		NetworkModel.sendConnRequest();
@@ -31,9 +34,9 @@ public class netLoop : MonoBehaviour {
 			int command = int.Parse(netdata[1]);
 			executeCommand(name, command);
 		}
-		if (player.GetComponent<LevelSystem>().Level >= 2 && bossEnabled == false)
+		if (bossEnabled && boss != null)//bool is changed to true when hitting a trigger box now.
 		{
-			bossEnabled = true;
+			//bossEnabled = true;
 			boss.SetActive(true);
 			spiritBomb.SetActive(true);
 			NetworkModel.send("enableboss");
@@ -69,11 +72,18 @@ public class netLoop : MonoBehaviour {
 	{
 		
 		if (command == 0) {
-			Instantiate (skeleton, player.transform.position, player.transform.rotation);
-			setCommandLog (name, " Has summoned a Skeleton!");
+			if (spawnedEnemies < maxSpawnableEnemies) {
+				Instantiate (skeleton, player.transform.position, player.transform.rotation);
+				setCommandLog (name, " Has summoned a Skeleton!");
+				spawnedEnemies++;
+			}
 		} else if (command == 1) {
-			Instantiate (skeletonMage, player.transform.position, player.transform.rotation);
-			setCommandLog (name, " Has summoned a Mage!");
+			if (spawnedEnemies < maxSpawnableEnemies) {
+				Instantiate (skeletonMage, player.transform.position, player.transform.rotation);
+				setCommandLog (name, " Has summoned a Mage!");
+				spawnedEnemies++;
+			}
+
 		} else if (command == 2) {
 			player.GetComponent<Fighter> ().Get_Hit (-10); //hitting for negative values heals
 			setCommandLog (name, " Has healed the player!");
