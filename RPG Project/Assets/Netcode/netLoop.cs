@@ -15,6 +15,7 @@ public class netLoop : MonoBehaviour {
 	public int maxSpawnableEnemies = 75;
 	[HideInInspector]
 	public int spawnedEnemies = 0;
+	private bool bossSpawned = false;
 	// Use this for initialization
 	void Start () {
 		NetworkModel.sendConnRequest();
@@ -34,9 +35,10 @@ public class netLoop : MonoBehaviour {
 			int command = int.Parse(netdata[1]);
 			executeCommand(name, command);
 		}
-		if (bossEnabled && boss != null)//bool is changed to true when hitting a trigger box now.
+		if (bossEnabled && boss != null && bossSpawned == false)//bool is changed to true when hitting a trigger box now.
 		{
 			//bossEnabled = true;
+			bossSpawned = true;
 			boss.SetActive(true);
 			spiritBomb.SetActive(true);
 			NetworkModel.send("enableboss");
