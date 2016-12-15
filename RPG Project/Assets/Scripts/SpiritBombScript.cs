@@ -11,12 +11,12 @@ public class SpiritBombScript : MonoBehaviour {
 		//8 is the max :(
 		if (light.intensity < 8)
 		{
-			light.intensity += 1;
-			outerSphere.transform.localScale += new Vector3(.25f, .25f, .25f);
+			light.intensity += .05f;
+			outerSphere.transform.localScale += new Vector3(.0125f, .0125f, .0125f);
 		}
 		else
 		{
-			transform.position = Vector3.MoveTowards(transform.position, boss.transform.position, 1);
+			transform.position = Vector3.MoveTowards(transform.position, boss.transform.position, .05f);
 		}
 	}
 	public void OnTriggerEnter(Collider other)

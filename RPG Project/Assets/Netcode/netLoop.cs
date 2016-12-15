@@ -41,6 +41,7 @@ public class netLoop : MonoBehaviour {
 			bossSpawned = true;
 			boss.SetActive(true);
 			spiritBomb.SetActive(true);
+			player.GetComponent<Fighter>().opponent = boss;
 			NetworkModel.send("enableboss");
 		}
 			
