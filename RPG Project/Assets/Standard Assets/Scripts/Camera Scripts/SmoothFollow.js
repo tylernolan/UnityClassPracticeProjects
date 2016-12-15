@@ -18,7 +18,6 @@ var height = 5.0;
 // How much we 
 var heightDamping = 2.0;
 var rotationDamping = 3.0;
-var spirit : Transform;
 var changeTarget = true;
 
 // Place the script in the Camera-Control group in the component menu
@@ -53,15 +52,6 @@ function LateUpdate () {
 
 	// Set the height of the camera
 	transform.position.y = currentHeight;
-	
-	// Always look at the target
-	if(changeTarget && spirit.gameObject.GetComponentsInChildren(Light)[0].intensity >= 4 ){
-		changeTarget = false;
-	}
-	if(!changeTarget) {
-		transform.LookAt(spirit);
-	}
-	else{
+
 		transform.LookAt (target);
-	}
 }
