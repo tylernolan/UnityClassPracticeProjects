@@ -10,7 +10,8 @@ public class KillAllEnemies : MonoBehaviour {
 			Collider other = collisions [i];
 			if (other.gameObject.tag == "Enemy") {
 				mob enemy = other.gameObject.GetComponent<mob> ();
-				enemy.getHit (enemy.health);
+				if(!enemy.boss)
+					enemy.getHit (enemy.health);
 			}
 		}
 	}
