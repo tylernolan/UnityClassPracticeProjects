@@ -12,7 +12,7 @@ public class SpiritBombScript : MonoBehaviour {
 		if (light.intensity < 8)
 		{
 			light.intensity += .05f;
-			outerSphere.transform.localScale += new Vector3(.0125f, .0125f, .0125f);
+			outerSphere.transform.localScale += new Vector3(.04f, .04f, .04f);
 		}
 		else
 		{

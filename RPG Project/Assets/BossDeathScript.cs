@@ -12,6 +12,7 @@ public class BossDeathScript : MonoBehaviour {
 		Instantiate (bossDeathParticles, this.transform.position, Quaternion.identity);
 		lightInstance = (GameObject)Instantiate (bossDeathLight, this.transform.position, Quaternion.identity);
 		isDead = true;
+		Camera.main.GetComponent<netLoop>().bossDead = true;
 		Camera.main.GetComponent<BossCameraScript> ().enabled = false;
 		MonoBehaviour follow = Camera.main.gameObject.GetComponent ("SmoothFollow") as MonoBehaviour;
 		follow.enabled = true;
