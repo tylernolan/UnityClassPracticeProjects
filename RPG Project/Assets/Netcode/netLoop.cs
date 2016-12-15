@@ -49,7 +49,7 @@ public class netLoop : MonoBehaviour {
 	public void setCommandLog(string name, string commandText)
 	{
 		string commandStr =  name + commandText;
-		Debug.Log(commandStr);
+		//Debug.Log(commandStr);
 		commandLog.Enqueue(commandStr);
 		string[] arr = commandLog.ToArray();
 		

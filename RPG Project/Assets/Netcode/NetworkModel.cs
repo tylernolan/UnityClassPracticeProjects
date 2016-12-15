@@ -26,7 +26,7 @@ public class NetworkModel : MonoBehaviour {
 			System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
 			byte[] sendData = encoding.GetBytes(msgData + "\r\n");
 			stream.Write(sendData, 0, sendData.Length);
-			Debug.Log("Data Sent!");
+			//Debug.Log("Data Sent!");
 		}
 	}
 	
@@ -46,7 +46,7 @@ public class NetworkModel : MonoBehaviour {
 				string respData = string.Empty;
 				int bytes = stream.Read(data, 0, data.Length);
 				respData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-				Debug.Log(respData);
+				//Debug.Log(respData);
 				string[] commands = respData.Split(new char[1] {'\n'});
 				lastMessageProcessed = commands[0];
 				for (int i = 1; i < commands.Length; i++)
@@ -55,10 +55,10 @@ public class NetworkModel : MonoBehaviour {
 					if (stripped != "")
 					{
 						buffer.Enqueue(commands[i]);
-						Debug.Log("Buffered: " + commands[i]);
+					//	Debug.Log("Buffered: " + commands[i]);
 					}
 				}
-				Debug.Log("REC: "+lastMessageProcessed);
+				//Debug.Log("REC: "+lastMessageProcessed);
 				return lastMessageProcessed;
 			}
 		}
