@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BossTriggerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\mob.cs">
     <Files>
-      <File FileName="Assets\BossTriggerScript.cs" Line="18" Column="25" />
+      <File FileName="Assets\Scripts\ClickToMove.cs" Line="77" Column="8" />
+      <File FileName="Assets\BossTriggerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\StunTrap.cs" Line="1" Column="1" />
       <File FileName="Assets\NatureStarterKit2\Editor\ImageEffects\CreaseShadingEditor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SepcialAttack.cs" Line="1" Column="1" />
@@ -10,13 +11,12 @@
       <File FileName="Assets\Scripts\Fighter.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemyHealth.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ClickToMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SpiritBombScript.cs" Line="15" Column="43" />
-      <File FileName="Assets\Scripts\mob.cs" Line="149" Column="32" />
-      <File FileName="Assets\BossDeathScript.cs" Line="20" Column="79" />
+      <File FileName="Assets\Scripts\SpiritBombScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\mob.cs" Line="31" Column="1" />
+      <File FileName="Assets\BossDeathScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Netcode\netLoop.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="21" Column="1" />
-      <File FileName="Assets\BossCameraScript.cs" Line="10" Column="40" />
+      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="1" Column="1" />
+      <File FileName="Assets\BossCameraScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

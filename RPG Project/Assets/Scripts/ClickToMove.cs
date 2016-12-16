@@ -12,6 +12,10 @@ public class ClickToMove : MonoBehaviour {
 	public static bool dieing = false;
 	public GameObject particleEffect;
 	private bool useParticle = true;
+	public AudioClip[] footsteps;
+	public AudioSource soundPlayer;
+	private float footstepTimer = 0.0f;
+	public float timeBetweenFootsteps = 0.25f;
 
 	// Use this for initialization
 	void Start () 
@@ -68,6 +72,14 @@ public class ClickToMove : MonoBehaviour {
 		//when game object is moving 
 		if (Vector3.Distance (transform.position, position) > 1 && canMove()) {
 			if (canMove ()) {
+				footstepTimer += Time.deltaTime;
+				if (footstepTimer >= timeBetweenFootsteps) {
+					//Debug.Log ("Playing footstep");
+					AudioClip soundToPlay = footsteps [Random.Range (0, footsteps.Length)];
+					soundPlayer.clip = soundToPlay;
+					soundPlayer.Play ();
+					footstepTimer = 0.0f;
+				}
 				Quaternion newRotation = Quaternion.LookRotation (position - transform.position);
 				newRotation.z = 0f;
 
