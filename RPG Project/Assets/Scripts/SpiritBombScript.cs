@@ -23,7 +23,10 @@ public class SpiritBombScript : MonoBehaviour {
 	{
 		if (other.tag == "Enemy")
 		{
-			other.GetComponent<mob>().health = 0;
+			if (other.GetComponent<mob> ().boss) {
+				other.GetComponent<mob> ().health = 0;
+				Destroy (outerSphere);
+			}
 		}
 	}
 }
